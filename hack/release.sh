@@ -17,7 +17,6 @@
 set -o errexit
 set -o nounset
 set -o pipefail
-#set -u
 
 source $(dirname "${BASH_SOURCE[0]}")/utils.sh
 cd ${ROOT}
@@ -43,11 +42,11 @@ OFFICIAL_RELEASE=${OFFICIAL_RELEASE:-false}
 # LOCAL_RELEASE indicates that containerd has been built and released
 # locally.
 LOCAL_RELEASE=${LOCAL_RELEASE:-false}
-if [ $GOOS=='' ]
+if [ -z "${GOOS:-}" ]
 then
     GOOS=$(go env GOOS)
 fi
-if [ $GOARCH=='']
+if [ -z "${GOARCH:-}" ]
 then
     GOARCH=$(go env GOARCH)
 fi
