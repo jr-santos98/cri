@@ -43,17 +43,13 @@ OFFICIAL_RELEASE=${OFFICIAL_RELEASE:-false}
 # LOCAL_RELEASE indicates that containerd has been built and released
 # locally.
 LOCAL_RELEASE=${LOCAL_RELEASE:-false}
-if [ -z "${GOOS}" ]
+if [ -z "$GOOS" ]
 then
     GOOS=$(go env GOOS)
-else
-    echo $GOOS
 fi
-if [ -z "${GOARCH}" ]
+if [ -z "$GOARCH" ]
 then
     GOARCH=$(go env GOARCH)
-else
-    echo $GOARCH
 fi
 
 
