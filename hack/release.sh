@@ -17,7 +17,7 @@
 set -o errexit
 set -o nounset
 set -o pipefail
-set -u
+#set -u
 
 source $(dirname "${BASH_SOURCE[0]}")/utils.sh
 cd ${ROOT}
@@ -46,10 +46,14 @@ LOCAL_RELEASE=${LOCAL_RELEASE:-false}
 if [ -z "${GOOS}" ]
 then
     GOOS=$(go env GOOS)
+else
+    echo $GOOS
 fi
 if [ -z "${GOARCH}" ]
 then
     GOARCH=$(go env GOARCH)
+else
+    echo $GOARCH
 fi
 
 
